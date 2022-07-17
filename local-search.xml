@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Linux部署JavaWeb项目</title>
+    <link href="/2022/06/28/Linux%E9%83%A8%E7%BD%B2JavaWeb%E9%A1%B9%E7%9B%AE/"/>
+    <url>/2022/06/28/Linux%E9%83%A8%E7%BD%B2JavaWeb%E9%A1%B9%E7%9B%AE/</url>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1.安装JDK"></a>1.安装JDK</h1><h1 id="2-安装Tomcat"><a href="#2-安装Tomcat" class="headerlink" title="2.安装Tomcat"></a>2.安装Tomcat</h1><h1 id="3-安装MySQL"><a href="#3-安装MySQL" class="headerlink" title="3.安装MySQL"></a>3.安装MySQL</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>项目部署</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>第一篇文章</title>
     <link href="/2022/06/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <url>/2022/06/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
