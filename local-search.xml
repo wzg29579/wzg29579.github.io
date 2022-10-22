@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Linux安装tomcat</title>
+    <link href="/2022/10/22/Linux%E5%AE%89%E8%A3%85tomcat/"/>
+    <url>/2022/10/22/Linux%E5%AE%89%E8%A3%85tomcat/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Linux安装Tomcat"><a href="#Linux安装Tomcat" class="headerlink" title="Linux安装Tomcat"></a>Linux安装Tomcat</h2><h3 id="1-下载、上传Tomcat包到Linux"><a href="#1-下载、上传Tomcat包到Linux" class="headerlink" title="1.下载、上传Tomcat包到Linux"></a>1.下载、上传Tomcat包到Linux</h3><p><img src="/img/2.png" alt="2"></p><h3 id="2-解压tomcat-、改名"><a href="#2-解压tomcat-、改名" class="headerlink" title="2.解压tomcat 、改名"></a>2.解压tomcat 、改名</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -xzvf  apache-tomcat-8.5.35.tar.gz  -C  /opt/<br>mv  /opt/apache-tomcat-8.5.35    /opt/tomcat<br></code></pre></td></tr></table></figure><blockquote><p>-C 指定路径</p><p>重命名为了方便管理</p></blockquote><h3 id="3-运行tomcat"><a href="#3-运行tomcat" class="headerlink" title="3.运行tomcat"></a>3.运行tomcat</h3><ol><li><p>进入Tomcat安装目录。命令启动（默认绿色后缀为.sh的便是Linux的可执行脚本）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /opt/tomcat/bin/<br>./startup.sh<br></code></pre></td></tr></table></figure><p><img src="/img/3.png" alt="3"></p></li><li><p>因为tomcat默认端口号是8080  所以把8080端口加入到信任</p></li></ol><p>   firewall-cmd     –zone&#x3D;public    –add-port&#x3D;8080&#x2F;tcp  –permanent</p><ol start="3"><li>重新启动防火墙服务</li></ol><p>   service iptables restart</p><ol start="4"><li>访问IP地址：8080查看是否能够访问tomcat</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>项目部署</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux安装MySQL</title>
     <link href="/2022/06/28/Linux%E9%83%A8%E7%BD%B2Mysql/"/>
     <url>/2022/06/28/Linux%E9%83%A8%E7%BD%B2Mysql/</url>
