@@ -16,25 +16,22 @@
   <meta name="author" content="wzg">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linux安装Tomcat1.下载、上传Tomcat包到Linux 2.解压tomcat 、改名12tar -xzvf  apache-tomcat-8.5.35.tar.gz  -C  &#x2F;opt&#x2F;mv  &#x2F;opt&#x2F;apache-tomcat-8.5.35    &#x2F;opt&#x2F;tomcat   -C 指定路径 重命名为了方便管理  3.运行tomcat 进入Tomcat安装目录。命令启动（默认绿色后缀">
+    <meta name="description" content="一、Linux配置nginx开机自启动1. 新建nginx.service文件（增加systemctl的nginx自定义服务）1vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;nginx.service  文件内容： 123456789101112131415161718192021[Unit]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装tomcat">
-<meta property="og:url" content="https://wzg29579.github.io/2022/10/22/Linux%E5%AE%89%E8%A3%85tomcat/index.html">
+<meta property="og:title" content="nginx自启动和Tomcat自启动配置">
+<meta property="og:url" content="https://wzg29579.github.io/2023/06/30/nginx%E8%87%AA%E5%90%AF%E5%8A%A8%E5%92%8CTomcat%E8%87%AA%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Linux安装Tomcat1.下载、上传Tomcat包到Linux 2.解压tomcat 、改名12tar -xzvf  apache-tomcat-8.5.35.tar.gz  -C  &#x2F;opt&#x2F;mv  &#x2F;opt&#x2F;apache-tomcat-8.5.35    &#x2F;opt&#x2F;tomcat   -C 指定路径 重命名为了方便管理  3.运行tomcat 进入Tomcat安装目录。命令启动（默认绿色后缀">
+<meta property="og:description" content="一、Linux配置nginx开机自启动1. 新建nginx.service文件（增加systemctl的nginx自定义服务）1vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;nginx.service  文件内容： 123456789101112131415161718192021[Unit]">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wzg29579.github.io/img/2.png">
-<meta property="og:image" content="https://wzg29579.github.io/img/3.png">
-<meta property="article:published_time" content="2022-10-22T07:47:30.000Z">
-<meta property="article:modified_time" content="2022-10-22T08:54:48.423Z">
+<meta property="article:published_time" content="2023-06-30T02:35:04.000Z">
+<meta property="article:modified_time" content="2023-06-30T06:15:03.493Z">
 <meta property="article:author" content="wzg">
 <meta property="article:tag" content="项目部署">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wzg29579.github.io/img/2.png">
   
   
   
-  <title>Linux安装tomcat - Hexo</title>
+  <title>nginx自启动和Tomcat自启动配置 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux安装tomcat"></span>
+            <span id="subtitle" data-typed-text="nginx自启动和Tomcat自启动配置"></span>
           
         </div>
 
@@ -214,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-22 15:47" pubdate>
-          2022年10月22日 下午
+        <time datetime="2023-06-30 10:35" pubdate>
+          2023年6月30日 上午
         </time>
       </span>
     
@@ -226,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.8k 字
         
       </span>
     
@@ -237,7 +234,7 @@
         
         
         
-          16 分钟
+          15 分钟
         
       </span>
     
@@ -275,73 +272,43 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Linux安装tomcat</h1>
+            <h1 style="display: none">nginx自启动和Tomcat自启动配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Linux安装Tomcat"><a href="#Linux安装Tomcat" class="headerlink" title="Linux安装Tomcat"></a>Linux安装Tomcat</h2><h3 id="1-下载、上传Tomcat包到Linux"><a href="#1-下载、上传Tomcat包到Linux" class="headerlink" title="1.下载、上传Tomcat包到Linux"></a>1.下载、上传Tomcat包到Linux</h3><p><img src="/img/2.png" srcset="/img/loading.gif" lazyload alt="2"></p>
-<h3 id="2-解压tomcat-、改名"><a href="#2-解压tomcat-、改名" class="headerlink" title="2.解压tomcat 、改名"></a>2.解压tomcat 、改名</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -xzvf  apache-tomcat-8.5.35.tar.gz  -C  /opt/<br>mv  /opt/apache-tomcat-8.5.35    /opt/tomcat<br></code></pre></td></tr></table></figure>
+                <h2 id="一、Linux配置nginx开机自启动"><a href="#一、Linux配置nginx开机自启动" class="headerlink" title="一、Linux配置nginx开机自启动"></a>一、Linux配置nginx开机自启动</h2><h3 id="1-新建nginx-service文件（增加systemctl的nginx自定义服务）"><a href="#1-新建nginx-service文件（增加systemctl的nginx自定义服务）" class="headerlink" title="1. 新建nginx.service文件（增加systemctl的nginx自定义服务）"></a>1. 新建nginx.service文件（增加systemctl的nginx自定义服务）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim /lib/systemd/system/nginx.service<br></code></pre></td></tr></table></figure>
+
+<p>文件内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell">[Unit]                                                                                      //对服务的说明<br><br>Description=nginx service		//描述服务<br><br>After=network.target           //描述服务类别<br><br>[Service]                      //服务的一些具体运行参数的设置<br><br>Type=forking                   //后台运行的形式<br><br>ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf  //启动命令（nginx的绝对路径）<br> <br>ExecReload=/usr/local/nginx/sbin/nginx -s reload                           //重启命令（nginx的绝对路径）<br><br>ExecStop=/usr/local/nginx/sbin/nginx -s quit                               //停止命令（nginx的绝对路径）<br><br>PrivateTmp=true                                                            //给服务分配临时空间<br><br>[Install] <br><br>WantedBy=multi-user.target                                                //服务用户的模式<br></code></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<p>[Service]的启动、重启、停止命令全部要求使用绝对路径<br>[Install]运行级别下服务安装的相关设置，可设置为多用户，即系统运行级别为3</p>
+<h3 id="2-启动关闭"><a href="#2-启动关闭" class="headerlink" title="2.启动关闭"></a>2.启动关闭</h3><p>设置开机自启动</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">enable</span> nginx.service<br></code></pre></td></tr></table></figure>
+
+<p>关闭开机自动启动</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">disable</span> nginx.service<br></code></pre></td></tr></table></figure>
+
+<h2 id="二、Linux-使用systemd创建tomcat自启动服务"><a href="#二、Linux-使用systemd创建tomcat自启动服务" class="headerlink" title="二、Linux 使用systemd创建tomcat自启动服务"></a>二、Linux 使用systemd创建tomcat自启动服务</h2><h3 id="1-增加systemctl的tomcat自定义服务"><a href="#1-增加systemctl的tomcat自定义服务" class="headerlink" title="1.增加systemctl的tomcat自定义服务"></a>1.增加systemctl的tomcat自定义服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim /lib/systemd/system/tomcat.service<br></code></pre></td></tr></table></figure>
 
 <blockquote>
-<p>-C 指定路径</p>
-<p>重命名为了方便管理</p>
+<p>usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;tomcat.service &#x2F;lib是&#x2F;usr&#x2F;lib快捷方式</p>
 </blockquote>
-<h3 id="3-运行tomcat"><a href="#3-运行tomcat" class="headerlink" title="3.运行tomcat"></a>3.运行tomcat</h3><ol>
-<li><p>进入Tomcat安装目录。命令启动（默认绿色后缀为.sh的便是Linux的可执行脚本）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /opt/tomcat/bin/<br>./startup.sh<br></code></pre></td></tr></table></figure>
+<p>文本内容：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">[Unit]<br>Description=Tomcat<br>After=syslog.target.network.target remote-fs.target nss-lookup.target<br>[Service]<br>Type=oneshot<br>ExecStart=/home/web/apache-tomcat-8.5.7200/bin/startup.sh<br>ExecStop=/home/web/apache-tomcat-8.5.7200/bin/stop.sh<br>ExecReload=/bin/kill -s HUP <span class="hljs-variable">$MAINPID</span><br>RemainAfterExit=<span class="hljs-built_in">yes</span><br>[Install]<br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/3.png" srcset="/img/loading.gif" lazyload alt="3"></p>
-<blockquote>
-<p>说明：在window系统中启动脚本是.bat文件，在Linux系统中使用的是.sh文件。执行格式为： **.&#x2F;**脚本</p>
-<p>注意：如果.sh文件显示为灰色，且无法执行，则是因为权限不足，使用命令给脚本文件增加执行权限。</p>
-<p>[root@localhost bin]# chmod +x *.sh  　　#给所有脚本文件增加执行权限</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="4-测试访问"><a href="#4-测试访问" class="headerlink" title="4.测试访问"></a>4.测试访问</h3><ol>
-<li>如果是外部主机想要访问Linux部署的Tomcat，需要开放端口，因为tomcat默认端口号是8080  所以把8080端口加入到信任</li>
-</ol>
-   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">firewall-cmd     --zone=public    --add-port=8080/tcp  --permanent<br></code></pre></td></tr></table></figure>
+<h3 id="2-启动关闭-1"><a href="#2-启动关闭-1" class="headerlink" title="2.启动关闭"></a>2.启动关闭</h3><p>设置开机自启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl <span class="hljs-built_in">enable</span> nginx.service<br></code></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>重新启动防火墙服务</li>
-</ol>
-<p>   service iptables restart</p>
-<ol start="3">
-<li><p>访问IP地址：8080查看是否能够访问tomcat</p>
-</li>
-<li><p>在tomcat首页点击Manager App  如果禁止访问 403。添加tomcat用户</p>
-<ol>
-<li><p>如果需要远程访问，关闭远程访问IP限制 注释value节点</p>
-<p>vim &#x2F;opt&#x2F;tomcat&#x2F;webapps&#x2F;manager&#x2F;META-INF&#x2F;context.xml</p>
-</li>
-<li><p>找到 <code>tomcat/conf/tomcat-users.xml </code>添加如下内容</p>
-</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;tomcat&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-gui&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-gui&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-script&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-script&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">&quot;tomcat,manager-gui,manager-script,admin-gui,admin-script&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+<p>查看服务运行状态</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl status tomcat<br></code></pre></td></tr></table></figure>
 
-<p>● 重启tomcat</p>
-</li>
-</ol>
-<h2 id="5-设置开机自启"><a href="#5-设置开机自启" class="headerlink" title="5.设置开机自启"></a>5.设置开机自启</h2><ol>
-<li><p>在&#x2F;etc&#x2F;init.d 下创建文件  tomcat</p>
-<p>在#!&#x2F;bin&#x2F;bash的情况下，虽然source不成功，但是还是运行了source后面的echo语句。sh则不会执行，sh可以认为是bash的标准模式 </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment"># description: auto_run</span><br><span class="hljs-comment"># chkconfig: 234 20 80</span><br>CATALINA_HOME=/opt/tomcat/<br><span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span><br>        start)<br>                sh <span class="hljs-variable">$CATALINA_HOME</span>/bin/startup.sh<br>                ;;<br>        stop)<br>                sh <span class="hljs-variable">$CATALINA_HOME</span>/bin/shutdown.sh<br>                ;;<br>        restart)<br>                sh <span class="hljs-variable">$CATALINA_HOME</span>/bin/shutdown.sh<br>                sh <span class="hljs-variable">$CATALINA_HOME</span>/bin/startup.sh<br>                ;;<br>        *)<br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;please use : tomcat &#123;start | stop | restart&#125;&#x27;</span><br>        ;;<br><span class="hljs-keyword">esac</span><br><span class="hljs-built_in">exit</span> 0<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>添加可执行权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod   +x  /etc/init.d/tomcat<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>声明环境变量</p>
-<blockquote>
-<p>启动tomcat会调用tomcat安装文件中的startup.sh，而它调用了catalina.sh，catalina.sh则调用了setclasspath.sh。因此需要在setclasspath.sh的开头手动声明环境变量。</p>
-</blockquote>
-<p>vim打开tomcat的bin目录下的setclasspath.sh，添加JAVA_HOME和JRE_HOME两个环境变量</p>
-</li>
-<li><p>将tomcat加入到开机启动项</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl enable tomcat<br></code></pre></td></tr></table></figure></li>
-</ol>
-<p>参考来源：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xsge/p/13819537.html">Linux系统（八）：安装Tomcat（2021最新最详细） - 净重21克 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">tomcat.service - tomcat<br>     Loaded: loaded (/lib/systemd/system/tomcat.service; enabled; vendor preset: enabled)<br>     Active: active (running) since Thu 2021-03-04 14:36:14 CST; 1h 4min ago<br>    Process: 898 ExecStart=/usr/local/tomcat/apache-tomcat-9.0.43/bin/startup.sh (code=exited, status=0/SUCCESS)<br>   Main PID: 957 (java)<br></code></pre></td></tr></table></figure>
+
+<p>其中 <code>Active</code>：<code>active (running)</code> 表示正在运行。表示服务添加成功。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>systemctl命令是service和chkconfig命令的集合<br>service命令:用于启动、停止、重新启动和关闭系统服务，还可以显示所有系统服务的当前状态<br>chkconfig命令:用于更新（启动或停止）和查询系统服务的运行级信息</p>
+<p>systemctl的服务配置目录 ：&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system</p>
 
                 
               </div>
@@ -387,8 +354,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux安装tomcat</div>
-      <div>https://wzg29579.github.io/2022/10/22/Linux安装tomcat/</div>
+      <div>nginx自启动和Tomcat自启动配置</div>
+      <div>https://wzg29579.github.io/2023/06/30/nginx自启动和Tomcat自启动配置/</div>
     </div>
     <div class="license-meta">
       
@@ -400,7 +367,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月22日</div>
+          <div>2023年6月30日</div>
         </div>
       
       
@@ -432,18 +399,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/30/nginx%E8%87%AA%E5%90%AF%E5%8A%A8%E5%92%8CTomcat%E8%87%AA%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE/" title="nginx自启动和Tomcat自启动配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">nginx自启动和Tomcat自启动配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/28/Linux%E9%83%A8%E7%BD%B2Mysql/" title="Linux安装MySQL">
-                        <span class="hidden-mobile">Linux安装MySQL</span>
+                      <a href="/2022/10/22/Linux%E5%AE%89%E8%A3%85tomcat/" title="Linux安装tomcat">
+                        <span class="hidden-mobile">Linux安装tomcat</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
